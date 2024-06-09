@@ -28,16 +28,18 @@ public class Main {
             token = textField.getText();
             login();
             frame.setVisible(false);
+
+            while (true) {
+                if (driver.getWindowHandles().size() == 0) {
+                    System.out.println("Browser window is closed. Stopping execution.");
+                    System.exit(0);
+                }
+            }
         });
         frame.pack();
         frame.setVisible(true);
 
-        while (true) {
-            if (driver.getWindowHandles().size() == 0) {
-                System.out.println("Browser window is closed. Stopping execution.");
-                System.exit(0);
-            }
-        }
+
     }
 
     private static void login() {
